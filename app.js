@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Route to dummy payments form
 app.get('/payments', function(req, res) {
-	res.sendfile('./payments.html')
+	res.sendfile('./public/payments.html')
 });
 
 // development only
