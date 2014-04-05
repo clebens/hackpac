@@ -18,6 +18,10 @@ var db = require('orchestrate')(orcApiKey);
 
 var app = express();
 
+
+// Load Stripe API key and module
+var stripe = require('stripe')('sk_test_CVLdm8e9cko34MGtta5kBAAy');
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
@@ -29,6 +33,12 @@ app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Route to dummy payments form
+app.get('/payments', function(req, res) {
+	res.sendfile('./payments.html')
+});
 
 // development only
 if ('development' == app.get('env')) {
@@ -70,7 +80,8 @@ app.post('/api/acceptDonation', function(req, res) {
 	
 });
 
-app.get('/api/addUser/:userName/:firstName', function(req, res) {
+
+	app.get('/api/addUser/:userName/:firstName', function(req, res) {
 	db.put('Users', req.params.userName, {
 		'userName': req.params.firstName
 	})
