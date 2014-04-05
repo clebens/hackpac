@@ -60,11 +60,15 @@ a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:underline;}
 
+#testme {
+    background-image: url('images/logo.png');
+
+}
 
 #logo {
-    background-image: url('logo.png');
-    width: 292px;
-    height: 74px;
+    background-image: url('images/logo.png');
+    width: 400px;
+    height: 207px;
     position: absolute;
     margin-top: 50px;
 }
@@ -174,16 +178,17 @@ h1 {
     font-weight: 100;
     text-align: center;
     margin-bottom: 10px;
-    line-height: 2em;
+
 }
 
 h2 {
-    font-family: "Arial Narrow", Arial;
-    font-weight:100;
-    color: #81d367;
-    font-size: 1.3em;
-    padding:0;
-    margin:15px 0 10px 0;
+  font-family:"Gnuolane";
+  clear: both;
+  font-size: 1em;
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 10px;
+
 }
 
 .three-col p {
