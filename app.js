@@ -46,8 +46,43 @@ if ('development' == app.get('env')) {
 }
 
 app.put('/api/acceptDonation', function(req, res) {
-	db.put('Donors', req.query.userName, {
-		'firstName': req.query.firstName
+	
+		processPayment(req);
+		addDonor(req);
+
+});
+
+function processPayment(req) {
+	// Set your secret key: remember to change this to your live secret key in production
+// See your keys here https://manage.stripe.com/account
+stripe.setApiKey("sk_test_CVLdm8e9cko34MGtta5kBAAy");
+
+// (Assuming you're using express - expressjs.com)
+// Get the credit card details submitted by the form
+var stripeToken = req.body.stripeToken;
+
+var charge = stripe.charges.create({
+  amount: 1000, // amount in cents, again
+  currency: "usd",
+  card: stripeToken,
+  description: "payinguser@example.com"
+}, 
+
+function(err, charge) {
+  if (err && err.type === 'StripeCardError') {
+    // The card has been declined
+  }
+});
+
+}
+
+function addDonor(req) {
+	
+	var donorKey = req.body.username + Math.floor(Math.random * 4294967290);
+
+	db.put('Donors', donorKey, {
+		'userName': req.body.username,
+		'firstName': req.body.firstName
 	})
 	.then(function(result){
 
@@ -55,7 +90,7 @@ app.put('/api/acceptDonation', function(req, res) {
 	.fail(function(err){
 
 	});
-});
+}
 
 app.post('/api/acceptDonation', function(req, res) {
 
