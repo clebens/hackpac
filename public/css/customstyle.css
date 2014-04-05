@@ -10,6 +10,9 @@
 
 body { 
     font-family: Arial;
+    background: url('images/hackathon_large.jpg'),#F2f2f2;
+    background-repeat: no-repeat;
+    background-size: 1600px 913px;
 
 }
 
@@ -38,7 +41,7 @@ header {
     font-size: 1.1em;
     margin-top: 392px;
     position: absolute;
-
+    margin-left: -220px;
     width: 650px;
     color: #fff;
     display: block;
@@ -60,17 +63,16 @@ a:visited {text-decoration:none;}
 a:hover {text-decoration:underline;}
 a:active {text-decoration:underline;}
 
-#testme {
-    background-image: url('images/logo.png');
-
-}
 
 #logo {
     background-image: url('images/logo.png');
-    width: 400px;
-    height: 207px;
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 300px;
+    margin-left: 35px;
+    background-size: 250px 250px;
     position: absolute;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 /*nav#inner-nav {
