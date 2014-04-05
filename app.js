@@ -25,14 +25,14 @@ var stripe = require('stripe')('sk_test_CVLdm8e9cko34MGtta5kBAAy');
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 app.use(express.favicon());
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Route to dummy payments form
@@ -130,6 +130,16 @@ app.post('/api/acceptDonation', function(req, res) {
 });
 
 	app.get('/users', user.list);
+
+
+// The secret to bridging Angular and Express in a 
+// way that allows us to pass any path to the client.
+
+// Also, this depends on the static middleware being
+// near the top of the stack.
+app.get('*', function (req, res) {
+	routes.index(req, res);
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

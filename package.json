@@ -9,6 +9,7 @@
     "express": "3.5.1",
     "jade": "*",
     "orchestrate": "0.0.9",
-    "stripe": "~2.4.4"
+    "stripe": "~2.4.4",
+    "ejs": "~1.0.0"
   }
 }
