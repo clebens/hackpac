@@ -8,6 +8,13 @@ var routes = require('./routes');
 var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
+var fs = require('fs');
+
+// Load Orchestrate API key and Module
+
+var orcApiKey = fs.readFileSync('./orcApiKey', {encoding: 'utf8'}).replace('\n', '');
+console.log(orcApiKey);
+var db = require('orchestrate')(orcApiKey);
 
 var app = express();
 
@@ -28,7 +35,55 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/users', user.list);
+app.put('/api/acceptDonation', function(req, res) {
+	db.put('Donors', req.query.userName, {
+		'firstName': req.query.firstName
+	})
+	.then(function(result){
+
+	})
+	.fail(function(err){
+
+	});
+});
+
+app.post('/api/acceptDonation', function(req, res) {
+
+	db.get('Donors', req.query.userName)
+	.then(function(result) {
+
+		db.put('Donors', req.query.userName, {
+			'firstName': req.query.firstName
+		})
+		.then(function(result) {
+		res.send('Added User: ' + req.query.userName + ', ' + req.query.firstName);
+		})
+		.fail(function(err) {
+			console.log(err);
+			res.send('error');
+		});	
+		
+	})
+	.then(function(err) {
+		res.send('error');
+	});
+	
+});
+
+app.get('/api/addUser/:userName/:firstName', function(req, res) {
+	db.put('Users', req.params.userName, {
+		'userName': req.params.firstName
+	})
+	.then(function(result) {
+		res.send('Added User: ' + req.params.userName + ', ' + req.params.firstName);
+	})
+	.fail(function(err) {
+		console.log(err);
+		res.send('error');
+	});
+});
+
+	app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
