@@ -55,7 +55,7 @@ app.post('/payments', function(req, res) {
 function processPayment(req, res) {
 	// Set your secret key: remember to change this to your live secret key in production
 // See your keys here https://manage.stripe.com/account
-stripe.setApiKey("sk_test_CVLdm8e9cko34MGtta5kBAAy");
+stripe.setApiKey(fs.readFileSync('./strApiKey', {encoding: 'utf8'}).replace('\n', ''));
 
 // (Assuming you're using express - expressjs.com)
 // Get the credit card details submitted by the form
