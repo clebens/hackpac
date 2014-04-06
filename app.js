@@ -46,7 +46,7 @@ if ('development' == app.get('env')) {
 }
 
 app.post('/payments', function(req, res) {
-	
+
 		processPayment(req, res);
 		addDonor(req, res);
 
@@ -61,34 +61,43 @@ stripe.setApiKey("sk_test_CVLdm8e9cko34MGtta5kBAAy");
 // Get the credit card details submitted by the form
 var stripeToken = req.body.stripeToken;
 
-/*var charge = stripe.charges.create({
-  amount: 1000, // amount in cents, again
+
+var charge = stripe.charges.create({
+  amount: 15, // amount in cents, again
   currency: "usd",
   card: stripeToken,
   description: "payinguser@example.com"
-}, 
-
-function(err, charge) {
+}, function(err, charge) {
   if (err && err.type === 'StripeCardError') {
     // The card has been declined
+      console.log('declined');
   }
-});
-*/
 
-console.log(req.body);
+  console.log('Charge:' + charge);
+});
+
+
+
 res.send('Hey!');
 }
 
 function addDonor(req, res) {
 
-
-	
-	/*
-	var donorKey = req.body.username + Math.floor(Math.random * 4294967290);
+	var donorKey = req.body.username;
 
 	db.put('Donors', donorKey, {
-		'userName': req.body.username,
-		'firstName': req.body.firstName
+		'firstName': req.body.firstName,
+		'lastName': req.body.lastName,
+		'streetAddress1': req.body.streetAddress1,
+		'streetAddress2': req.body.streetAddress2,
+		'city': req.body.city,
+		'state': req.body.state,
+		'country': req.body.country,
+		'zipCode': req.body.zipCode,
+		'occupation': req.body.occupation,
+		'totalDonation': 0,
+		'annualDonation': 0,
+		'phoneNumber': req.body.phoneNumber
 	})
 	.then(function(result){
 
@@ -96,7 +105,6 @@ function addDonor(req, res) {
 	.fail(function(err){
 
 	});
-*/
 }
 
 app.post('/api/acceptDonation', function(req, res) {

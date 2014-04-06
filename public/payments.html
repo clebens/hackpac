@@ -1,16 +1,58 @@
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript" src="payments.js"></script>
 
 <form action="" method="POST" id="payment-form">
   <span class="payment-errors"></span>
 
+  <div class="biographical-input">
+    <label>
+      <span>Username</span>
+      <input type="text" size="20" name="username"/>
+    </label><br>
+    <label>
+      <span>First Name</span>
+      <input type="text" size="20" name="firstName"/>
+    </label>
+    <label>
+      <span>Last Name</span>
+      <input type="text" size="20" name="lastName"/>
+    </label><br>
+    <label>
+      <span>Street Address</span>
+      <input type="text" size="20" name="streetAddress1"/>
+    </label><br>
+    <label>
+      <input type="text" size="20" name="streetAddress2"/>
+    </label><br>
+    <label>
+      <span>City</span>
+      <input type="text" size="20" name="city"/>
+    </label><br>
+    <label>
+      <span>State / Province</span>
+      <input type="text" size="20" name="state"/>
+    </label><br>
+    <label>
+      <span>Country</span>
+      <input type="text" size="20" name="country"/>
+    </label><br>
+    <label>
+      <span>Zip Code</span>
+      <input type="text" size="20" name="zipCode"/>
+    </label><br>
+    <label>
+      <span>Occupation</span>
+      <input type="text" size="20" name="occupation"/>
+    </label>
+    <label>
+      <span>Phone Number</span>
+      <input type="text" size="20" data-stripe="phoneNumber"/>
+    </label>
+  </div>
   <div class="form-row">
     <label>
       <span>Card Number</span>
       <input type="text" size="20" data-stripe="number"/>
     </label>
   </div>
-
   <div class="form-row">
     <label>
       <span>CVC</span>
