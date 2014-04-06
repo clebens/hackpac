@@ -31,7 +31,6 @@ body {
 header {
     height: 548px;
     width: 960px;
-    background: red;
     background-image: url('images/hackathon.jpg');
 }
 
@@ -274,13 +273,13 @@ ul {list-style-image: url('images/bullet.png');}
 }
 
 .three-col.one {
-    background: red;
+
 }
 .three-col.two {
-    background: yellow;
+
 }
 .three-col.three {
-    background:green;
+
 }
 
 
