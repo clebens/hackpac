@@ -30,33 +30,31 @@ body {
 
 header {
     height: 548px;
-    width: 100%;
+    width: 960px;
     background: red;
     background-image: url('images/hackathon.jpg');
 }
 
-
-
 .front-page-desc {
-    font-size: 1.1em;
-    margin-top: 392px;
-    position: absolute;
-    margin-left: -220px;
-    width: 650px;
-    color: #fff;
-    display: block;
-    text-decoration: none;
-    background: rgba(33, 33, 33, .7);
-    text-align: center;
-    padding: 30px;
-    text-align: left;
-    font-size: .9em;
-    -webkit-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+position: absolute;
+font-size: 1.1em;
+font-family: Gnuolane;
+margin-top: 100px;
+margin-left: 310px;
+/* margin-left: -220px; */
+width: 650px;
+color: #fff;
+display: block;
+text-decoration: none;
+background: rgba(33, 33, 33, .7);
+text-align: center;
+padding: 30px;
+text-align: left;
+font-size: 1.5em;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+transition: all 0.4s;
 }
-
-
 
 a:link {text-decoration:none;}
 a:visited {text-decoration:none;}
@@ -66,13 +64,14 @@ a:active {text-decoration:underline;}
 
 #logo {
     background-image: url('images/logo.png');
-    background-repeat: no-repeat;
-    width: 300px;
-    height: 300px;
-    margin-left: 35px;
-    background-size: 250px 250px;
-    position: absolute;
-    margin-top: 30px;
+background-repeat: no-repeat;
+width: 300px;
+height: 300px;
+/* padding: 50px; */
+/* margin: 50px; */
+background-size: 250px;
+background-position: 20px 30px;
+/* position: absolute; */
 }
 
 /*nav#inner-nav {
@@ -180,7 +179,8 @@ h1 {
     font-weight: 100;
     text-align: center;
     margin-bottom: 10px;
-
+    text-align: left;
+    margin-top:0;
 }
 
 h2 {
@@ -188,9 +188,9 @@ h2 {
   clear: both;
   font-size: 1em;
   font-weight: 100;
-  text-align: center;
+  text-align: left;
   margin-bottom: 10px;
-
+  margin-top:0;
 }
 
 .three-col p {
