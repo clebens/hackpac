@@ -93,16 +93,6 @@ margin: 0 10px;
     margin-top:-2px;
 }
 
-input {
-    margin-top: 40px;
-    float:right;
-    -webkit-appearance: none;
-    border: solid #D0D0D0 1px;
-    font-size: 1.2em;
-    width: 175px;
-    background: url('images/search.png') no-repeat;
-    background-position: 147px 3px;
-}
 
 nav#main-nav {
     font-family: "Arial Narrow", Arial;
